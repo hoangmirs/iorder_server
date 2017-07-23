@@ -25,9 +25,13 @@ gem "fog"
 #front-end
 gem "kaminari"
 
-#api
+#authentication
+gem "devise"
+
+#api authentication
 gem "doorkeeper"
 gem "active_model_serializers"
+
 
 #background job
 gem "sidekiq"
