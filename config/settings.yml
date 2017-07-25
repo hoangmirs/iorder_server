@@ -1,1 +1,3 @@
-size: 1
+user:
+  uid:
+    max_length: 10
