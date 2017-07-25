@@ -1,0 +1,5 @@
+en:
+  admin:
+    breadcrumbs:
+      home: <i class="fa fa-dashboard"></i> Home
+      dashboard: Dashboard

@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IorderServer</title>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IOrder</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Application style -->
+    <%= stylesheet_link_tag    "application", media: "all" %>
+
+    <!-- Theme style -->
+    <%= stylesheet_link_tag "AdminLTE" %>
+
+    <!-- Theme skin -->
+    <%= stylesheet_link_tag "_all-skins" %>
+    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
+    <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <%= render "layouts/header" %>
+      <%= render "layouts/sidebar" %>
+      <div class="content-wrapper">
+        <ol class="breadcrumb">
+          <%= render_breadcrumbs :tag => :li, :separator => "" %>
+        </ol>
+        <%= yield %>
+      </div>
+      <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>
