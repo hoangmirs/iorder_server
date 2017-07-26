@@ -36,6 +36,8 @@ gem "redis"
 #search
 gem "ransack", github: "activerecord-hackery/ransack"
 
+gem "breadcrumbs_on_rails"
+
 group :development, :test do
   gem "dotenv-rails"
   gem "faker"
