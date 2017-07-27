@@ -1,0 +1,20 @@
+<div class="content">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="box box-widget widget-user-2">
+      <div class="widget-user-header bg-aqua-active">
+        <div class="widget-user-image">
+          <%= image_tag @category.image, class: "img-circle" %>
+        </div>
+        <h3 class="widget-user-username"><%= @category.name %></h3>
+        <h5 class="widget-user-desc"><%= @category.description %></h5>
+      </div>
+      <div class="box-footer no-padding">
+        <ul class="nav nav-stacked">
+          <li><a href="#">Products <span class="pull-right badge bg-blue">31</span></a></li>
+          <li><a href="#">Orders <span class="pull-right badge bg-aqua">5</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
