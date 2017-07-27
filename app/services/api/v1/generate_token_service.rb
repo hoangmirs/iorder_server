@@ -12,8 +12,7 @@ class Api::V1::GenerateTokenService < BaseService
   private
   def generate_token user
     access_token = Doorkeeper::AccessToken.create! resource_owner_id: user.id,
-      expires_in: Doorkeeper.configuration.access_token_expires_in,
-      use_refresh_token: true
+      expires_in: Doorkeeper.configuration.access_token_expires_in, use_refresh_token: true
     token_info = Doorkeeper::OAuth::TokenResponse.new(access_token).body
         .merge uid: user.uid
     created_at = token_info["created_at"]
