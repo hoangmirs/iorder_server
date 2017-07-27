@@ -1,0 +1,16 @@
+<tr>
+  <td width="10%" class="text-center"><%= get_object_counter category, category_counter, params[:page] %></td>
+  <td width="60%"><%= category.name %></td>
+  <td width="10%" class="text-center"><%= category.description %></td>
+  <td width="20%" class="text-center">
+    <%= link_to admin_category_path(category), class: "btn btn-info" do %>
+      <i class="fa fa-info"></i>
+    <% end %>
+    <%= link_to edit_admin_category_path(category), class: "btn btn-warning" do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+    <%= link_to admin_category_path(category), class: "btn btn-danger" do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  </td>
+</tr>

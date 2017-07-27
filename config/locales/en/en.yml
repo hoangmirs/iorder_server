@@ -23,3 +23,19 @@ en:
   layouts:
     sidebar:
       home: Home
+      categories: Categories
+  admin:
+    categories:
+      index:
+        header: Categories
+        id: "#"
+        name: Name
+        product_num: Number of products
+        actions: Actions
+        create_button: New Category
+      new:
+        header: Create new Category
+        submit_button: Create
+      edit:
+        header: Edit Category
+        submit_button: Save changes
