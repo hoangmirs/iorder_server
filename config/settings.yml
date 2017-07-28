@@ -3,4 +3,5 @@ user:
     max_length: 10
 size: 1
 pagination_default:
-  categories: 2
+  categories: 10
+  products: 10

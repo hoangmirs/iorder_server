@@ -1,0 +1,17 @@
+<tr>
+  <td width="10%" class="text-center"><%= get_object_counter product, product_counter, params[:page] %></td>
+  <td width="30%"><%= product.category_name %></td>
+  <td width="30%"><%= product.name %></td>
+  <td width="10%" class="text-center">
+    <%= image_tag product.image, class: "product-image-thumbs" %>
+  </td>
+  <td width="20%" class="text-center">
+    <%= link_to edit_admin_product_path(product), class: "btn btn-warning" do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+    <%= link_to admin_product_path(product), class: "btn btn-danger",
+      method: :delete, data: {confirm: t(".delete_confirm")} do %>
+        <i class="fa fa-trash"></i>
+    <% end %>
+  </td>
+</tr>

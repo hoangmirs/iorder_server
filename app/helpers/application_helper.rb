@@ -1,6 +1,6 @@
 module ApplicationHelper
   def active_class link_path
-    "active" if request.original_fullpath.include? link_path
+    "active" if request.original_fullpath == link_path
   end
 
   def get_object_counter object, counter, page

@@ -10,3 +10,10 @@ en:
         edit: &edit_category Edit category
         update: *edit_category
         show: Category information
+      products:
+        index: Products
+        new: &new_product New product
+        create: *new_product
+        edit: &edit_product Edit product
+        update: *edit_product
+        show: Product information
