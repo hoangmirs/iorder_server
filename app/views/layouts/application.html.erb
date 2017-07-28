@@ -20,6 +20,7 @@
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" %>
+    <%= content_for :specific_page_css %>
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -34,5 +35,6 @@
       </div>
       <%= render "layouts/footer" %>
     </div>
+    <%= content_for :specific_page_js %>
   </body>
 </html>

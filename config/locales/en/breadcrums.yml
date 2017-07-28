@@ -3,3 +3,10 @@ en:
     breadcrumbs:
       home: <i class="fa fa-dashboard"></i> Home
       dashboard: Dashboard
+      categories:
+        index: Categories
+        new: &new_category New category
+        create: *new_category
+        edit: &edit_category Edit category
+        update: *edit_category
+        show: Category information

@@ -1,3 +1,6 @@
 user:
   uid:
     max_length: 10
+size: 1
+pagination_default:
+  categories: 2
