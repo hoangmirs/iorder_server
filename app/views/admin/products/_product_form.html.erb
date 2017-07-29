@@ -1,0 +1,47 @@
+<%= form_for [:admin, product] do |f| %>
+  <div class="box-body">
+    <div class="form-group <%= 'has-error' if product.errors.details[:category_id].any?; %>">
+      <%= f.label :category_id %>
+      <%= f.select :category_id, Category.pluck(:name, :id), {}, {class: "form-control"} %>
+      <span class="help-block"><%= product.errors.full_messages_for(:category_id).join("\n") %></span>
+    </div>
+    <div class="form-group <%= 'has-error' if product.errors.details[:name].any?; %>">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+      <span class="help-block"><%= product.errors.full_messages_for(:name).join("\n") %></span>
+    </div>
+    <div class="form-group <%= 'has-error' if product.errors.details[:description].any? %>">
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "form-control" %>
+      <span class="help-block"><%= product.errors.full_messages_for(:description).join("\n") %></span>
+    </div>
+    <div class="form-group <%= 'has-error' if product.errors.details[:price].any? %>">
+      <%= f.label :price %>
+      <%= f.number_field :price, class: "form-control" %>
+      <span class="help-block"><%= product.errors.full_messages_for(:price).join("\n") %></span>
+    </div>
+    <div class="form-group <%= 'has-error' if product.errors.details[:cost_time].any? %>">
+      <%= f.label :cost_time %>
+      <div class="input-group">
+        <%= f.number_field :cost_time, class: "form-control" %>
+        <span class="input-group-addon"><%= t ".minutes" %></span>
+      </div>
+      <span class="help-block"><%= product.errors.full_messages_for(:cost_time).join("\n") %></span>
+    </div>
+    <div class="form-group <%= 'has-error' if product.errors.details[:image].any? %>">
+      <%= f.label :image %>
+      <%= f.file_field :image, class: "form-control file-input" %>
+      <span class="help-block"><%= product.errors.full_messages_for(:image).join("\n") %></span>
+      <%= image_tag f.object.image, class: "product-image-preview img-thumbnail" %>
+    </div>
+  </div>
+  <div class="box-footer">
+    <button type="submit" class="btn btn-primary pull-right"><%= yield :submit_button %></button>
+  </div>
+<% end %>
+<%= content_for :specific_page_js do %>
+  <script type="text/javascript">
+    <%= render "admin/shared/fileinput.js" %>
+  </script>
+  <%= javascript_include_tag "fileinput" %>
+<% end %>

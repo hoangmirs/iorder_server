@@ -52,12 +52,15 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def load_categories
-    @categories = Category.all.page(params[:page]).per Settings.pagination_default.categories
+    @categories = Category.joins("left outer join products on products.id = categories.id")
+      .select("categories.*, count(products.id) as product_count").group("categories.id")
+      .page(params[:page]).per Settings.pagination_default.categories
   end
 
   def load_category
     @category = if params[:id]
-      Category.find_by id: params[:id]
+      Category.joins("left outer join products on products.id = categories.id")
+        .select("categories.*, count(products.id) as product_count").group("categories.id").find_by id: params[:id]
     else
       Category.new
     end
