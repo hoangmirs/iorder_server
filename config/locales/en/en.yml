@@ -1,6 +1,7 @@
 en:
   errors:
     api:
+      not_found: "%{model} not found"
       sessions_controller:
         login:
           success:
