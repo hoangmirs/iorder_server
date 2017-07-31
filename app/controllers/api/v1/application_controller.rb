@@ -3,7 +3,7 @@ class Api::V1::ApplicationController < ActionController::API
   before_action :current_user
 
   def doorkeeper_unauthorized_render_options error
-    {json: {errors: I18n.t("doorkeeper.errors.messages.unauthorized_client", uid: current_user.uid)}}
+    {json: {errors: I18n.t("doorkeeper.errors.messages.unauthorized_client", uid: current_user&.uid)}}
   end
 
   def current_user
