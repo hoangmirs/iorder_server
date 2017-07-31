@@ -5,3 +5,5 @@ size: 1
 pagination_default:
   categories: 10
   products: 10
+ransack:
+  lteq: lteq
