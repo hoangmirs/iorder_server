@@ -19,3 +19,23 @@ category_names.each do |category_name|
   end
 end
 puts "Create categories success ! #{errors} errors"
+
+#Sale
+Sale.all.destroy_all
+puts "Destroy Sales success !"
+errors = 0
+(1..5).each do |i|
+  sale_image = File.open(File.join(Rails.root, "db/master/seed/sales/sale_#{i}.jpg"))
+  sale = Sale.new name: Faker::Color.color_name, description: Faker::Lorem.sentence,
+    code: Sale.generate_sales_code, genre: Sale.genres.keys.sample, num: Faker::Number.decimal(2),
+      apply_all: true, image: sale_image, start_time: 1.day.ago, end_time: 1.month.from_now
+  unless sale.save
+    errors += 1
+    next
+  end
+  if i.odd?
+    sale.update apply_all: false
+    sale.products_sales.create product: Product.where.not(id: ProductsSale.pluck(:product_id)).sample
+  end
+end
+puts "Create Sales success!"
