@@ -12,7 +12,7 @@ class Api::V1::SalesController < Api::V1::ApplicationController
 
   private
   def load_sales
-    @sales = Sale.all
+    @sales = Sale.search_by params
   end
 
   def load_sale
