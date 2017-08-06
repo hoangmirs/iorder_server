@@ -9,6 +9,9 @@ en:
             code: 101
             message: Email or password incorrect
         logout:
+      orders:
+        create_failed: 111
+        update_failed: 112
   layouts:
     sidebar:
       home: Home

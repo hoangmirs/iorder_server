@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :orders
+  has_many :orders_products, through: :orders
   has_secure_password
   before_create :generate_uid
 
