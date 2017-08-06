@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731162428) do
+ActiveRecord::Schema.define(version: 20170806091210) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
@@ -73,6 +73,29 @@ ActiveRecord::Schema.define(version: 20170731162428) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "products_sales", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.bigint "product_id"
+    t.bigint "sale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_products_sales_on_product_id"
+    t.index ["sale_id"], name: "index_products_sales_on_sale_id"
+  end
+
+  create_table "sales", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string "name"
+    t.text "description"
+    t.string "code"
+    t.boolean "apply_all"
+    t.integer "genre"
+    t.float "num", limit: 24
+    t.string "image"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "uid"
     t.string "name"
@@ -91,4 +114,6 @@ ActiveRecord::Schema.define(version: 20170731162428) do
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "products", "categories"
+  add_foreign_key "products_sales", "products"
+  add_foreign_key "products_sales", "sales"
 end

@@ -5,7 +5,9 @@ en:
       sessions_controller:
         login:
           success:
-          failed: Email or password incorrect
+          failed:
+            code: 101
+            message: Email or password incorrect
         logout:
   layouts:
     sidebar:
