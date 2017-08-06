@@ -1,4 +1,5 @@
 class Api::V1::ApplicationController < ActionController::API
+  include ApplicationHelper
   before_action :doorkeeper_authorize!
   before_action :current_user
 

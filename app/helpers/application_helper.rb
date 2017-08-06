@@ -10,4 +10,10 @@ module ApplicationHelper
       counter + 1
     end
   end
+
+  def paginate_array array, page, per_page
+    return array if page.blank?
+    per_page ||= Settings.pagination_default.per_page
+    Kaminari.paginate_array(array).page(page).per per_page
+  end
 end

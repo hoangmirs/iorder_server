@@ -3,7 +3,8 @@ user:
     max_length: 10
 size: 1
 pagination_default:
+  per_page: 10
   categories: 10
-  products: 10
+  products: 2
 ransack:
   lteq: lteq

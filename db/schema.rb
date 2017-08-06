@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170731162428) do
   end
 
   create_table "oauth_access_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.bigint "resource_owner_id"
+    t.integer "resource_owner_id"
     t.bigint "application_id"
     t.string "token", null: false
     t.string "refresh_token"
@@ -89,6 +89,6 @@ ActiveRecord::Schema.define(version: 20170731162428) do
   end
 
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
-  add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
+  add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "products", "categories"
 end
